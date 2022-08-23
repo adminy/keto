@@ -1,0 +1,16 @@
+{
+  "name": "mum",
+  "version": "1.0.0",
+  "description": "",
+  "main": "vite.config.js",
+  "scripts": {
+    "start": "sudo vite --port 80",
+    "test": "vite build"
+  },
+  "author": "adminy",
+  "license": "ISC",
+  "dependencies": {
+    "vite": "^3.0.8",
+    "vite-plugin-solid": "^2.3.0"
+  }
+}

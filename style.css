@@ -1,0 +1,138 @@
+/* * { font-family: 'Copperplate, Papyrus, fantasy',sans-serif } */
+/* * { font-family: 'Raleway',sans-serif } */
+
+@import url(https://fonts.googleapis.com/css?family=Merriweather);
+
+*, *::before, *::after {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: Merriweather, Georgia, serif;
+	font-size: 62.5%;
+}
+.hexagon {
+	position: relative;
+	display: inline-block;
+	/* left/right margin approx. 25% of .hexagon width + spacing */
+	margin: 1px 18px;
+	/* background-color: hsl(220, 75%, 75%); */
+	text-align: center;
+}
+.hexagon, .hexagon::before, .hexagon::after {
+	/* easy way: height is width * 1.732
+	actual formula is 2*(width/(2*Math.tan(Math.PI/6)))
+	remove border-radius for sharp corners on hexagons */
+	border-radius: 20%/5%;
+}
+
+.hexagon, .hexagon::before, .hexagon::after, .hexanone {
+	width: 210px;
+	height: 364px;
+
+}
+
+.hexagon::before {
+	background-color: inherit;
+	content: "";
+	position: absolute;
+	left: 0;
+	transform: rotate(-60deg);
+}
+.hexagon::after {
+	background-color: inherit;
+	content: "";
+	position: absolute;
+	left: 0;
+	transform: rotate(60deg);
+}
+.hexagon:nth-child(even) {
+	/* top approx. 50% of .hexagon height + spacing */
+	top: 104px;
+}
+.hexagon:hover {
+	background-color: hsla(60, 75%, 75%, 1.0);
+	cursor: pointer;
+	z-index: 105;
+}
+.hexagon:active {
+	background-color: hsla(60, 75%, 50%, 1.0);
+	z-index: 110;
+}
+.hexanone {
+	position: relative;
+	display: inline-block;
+	/* margin: 1px 18px; */
+}
+.hexagon {
+	/* height width */
+	margin: 10px 120px 0px 10px;
+}
+
+.hexanone:nth-child(even) {
+	top: 59px;
+}
+.hexagontent {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 140%;
+	font-size: 1.4rem;
+	line-height: 1.2;
+	z-index: 100;
+}
+
+.hexagontent > .image {
+	margin: 0 auto;
+	text-align: center;
+	position: absolute;
+	top: 15%;
+}
+.hexagontent > h1 {
+	position: absolute;
+	bottom: 0;
+	font-size: 180%;
+	font-weight: bold
+}
+
+
+.hexagontent > div > span:nth-child(1) { position: absolute; top: 0px; left: 60px; font-size: 150%; font-weight: bold; }
+.hexagontent > div > span:nth-child(2) { position: absolute; top: 35px; left: -30px; transform:rotate(-57deg); font-size: 180%; font-weight: bold; }
+.hexagontent > div > span:nth-child(3) { position: absolute; top: 155px; left: -80px; font-size: 150%; font-weight: bold; }
+.hexagontent > div > span:nth-child(4) { position: absolute; top: 155px; right: -80px;  font-size: 200%; font-weight: bold; }
+.hexagontent > div > span:nth-child(5) { position: absolute; top: 35px; right: -30px; transform:rotate(57deg); font-size: 180%; font-weight: bold; }
+
+.ibws-fix {
+	/* inline-block whitespace fix */
+	font-size: 0;
+	height: 700px
+}
+
+.honeycomb {
+	padding: 100px;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 10px;
+	max-width: 3000px;
+	min-width: 3000px;
+}
+
+
+.honeycomb > li {
+	flex: auto; /* or flex: 1 1 auto; */
+	cursor: pointer;
+	position: relative;
+}
+
+.honeycomb::after {
+	content: "";
+	flex-grow: 999;
+}
+
+.honeycomb li div {
+	object-fit: cover;
+	width: 100%;
+	height: 100%;
+	vertical-align: middle;
+	border-radius: 5px;
+}
