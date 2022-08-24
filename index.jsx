@@ -1,6 +1,6 @@
 
 import { render } from 'solid-js/web'
-import { createResource, For } from 'solid-js'
+import { createResource } from 'solid-js'
 
 const data = {
 	Fruits: [
@@ -112,13 +112,9 @@ const Ingredient = ({ query, category }) => {
 
 const App = () => (
 	<div class="honeycomb">
-		<For each={Object.entries(data)}>
-			{([category, ingredients]) => (
-				<For each={ingredients}>
-					{ingredient => <Ingredient query={ingredient} category={category} />}
-				</For>
-			)}
-		</For>
+		{Object.entries(data).map(([category, ingredients]) => (
+			ingredients.map(ingredient => <Ingredient query={ingredient} category={category} />)
+		))}
 	</div>
 )
 
